@@ -11,4 +11,4 @@ rules (file type and/or words in the file name). Every move shows up in a histor
 - While you drag it, the shadow lifts and the window wobbles slightly.
 - Settings and history live in `%AppData%\DropSorter\` (`config.json`, `history.json`).
 
-Unsigned builds show a Windows SmartScreen warning: *More info → Run anyway*.
+Unsigned builds show a Windows SmartScreen warning: *More info → Run anyway*. You can safely ignore this warning; it simply means I haven't paid for a signed certificate.
