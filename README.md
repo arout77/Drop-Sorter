@@ -3,6 +3,8 @@
 A small always-on-top widget for Windows. Drag files onto it and they're moved into folders based on
 rules (file type and/or words in the file name). Every move shows up in a history list with an Undo button.
 
+[Download from GitHub](https://github.com/arout77/Drop-Sorter/actions/runs/39513314667/artifacts/12306178684)
+
 ## Using it
 - Drag the widget by its background; it snaps to screen edges.
 - **History ▾** shows recent moves; **Undo** puts a file back (renamed if the name is taken).
