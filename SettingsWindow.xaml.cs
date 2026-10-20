@@ -1,7 +1,10 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Interop;
 using Microsoft.Win32;
 
 namespace DropSorter;
@@ -9,6 +12,19 @@ namespace DropSorter;
 public partial class SettingsWindow : Window
 {
     readonly ObservableCollection<Rule> _rules;
+
+    [DllImport("dwmapi.dll")]
+    static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int value, int size);
+
+    // Dark title bar + matching caption colour (Windows 10 2004+ / 11; silently ignored elsewhere)
+    protected override void OnSourceInitialized(EventArgs e)
+    {
+        base.OnSourceInitialized(e);
+        var h = new WindowInteropHelper(this).Handle;
+        int on = 1, caption = 0x001F1614;   // #14161F as COLORREF (BGR)
+        DwmSetWindowAttribute(h, 20, ref on, sizeof(int));
+        DwmSetWindowAttribute(h, 35, ref caption, sizeof(int));
+    }
 
     public SettingsWindow()
     {
